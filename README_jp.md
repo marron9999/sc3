@@ -1,6 +1,6 @@
-# s3
+# sc3
 
-#### 全体像
+## 全体像
 
 ![](images/mbituart.png)
 
@@ -24,7 +24,9 @@
 
 	MaqueenのGUI部
 
-#### 開発環境
+<hr>
+
+## 開発環境
 
 - Windows 10 Home 20H2 19042.867 (64bit)
 - Chrome 89.0.4389.90（64bit)
@@ -32,14 +34,17 @@
 - Visual Studio 2019 Community edition
 - git 2.30.1.windows.1 (64 bit)
 
-#### maqueen
+<hr>
+## maqueen
 
 ![](images/Img_0033.jpg>
 
 - DFROBOT micro:Maqueen for micro:bit V4.1
 - BBC micro:bit V1.5 / V2
 
-#### おまけ
+<hr>
+
+## おまけ
 
 https://www.cube-d.co.jp<br>
 株式会社デジタルキューブさんが公開してくれているペーパークラフトをmaqueenにかぶせてみました！
