@@ -22,6 +22,10 @@
 
 	MaqueenのGUI部
 
+- [ブラウザ](maqueen/README_jp.md)
+
+	Web bluetoothでMaqueenを制御
+
 <hr>
 
 ## 開発環境
