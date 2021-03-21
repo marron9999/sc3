@@ -35,9 +35,10 @@
 - git 2.30.1.windows.1 (64 bit)
 
 <hr>
+
 ## maqueen
 
-![](images/Img_0033.jpg>
+![](images/Img_0033.jpg)
 
 - DFROBOT micro:Maqueen for micro:bit V4.1
 - BBC micro:bit V1.5 / V2
