@@ -41,7 +41,7 @@
 
 #### おまけ
 
-https://www.cube-d.co.jp>https://www.cube-d.co.jp<br>
+https://www.cube-d.co.jp<br>
 株式会社デジタルキューブ　さんが公開してくれているペーパークラフトをmaqueenにかぶせてみました！
 
 ![](images/Img_0045.jpg) ![](images/Img_0036.jpg)
