@@ -18,7 +18,7 @@
 
 	bluetooth extensionのGUI部を分離・改造
 
-- [maqueen extension](https://github.com/marron9999/maqueen/blob/master/README_jp.md)
+- [maqueen extension](https://github.com/marron9999/sc3-maqueen/blob/master/README_jp.md)
 
 	MaqueenのGUI部
 
