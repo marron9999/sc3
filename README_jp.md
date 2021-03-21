@@ -1,7 +1,5 @@
 # sc3
 
-## 全体像
-
 ![](images/mbituart.png)
 
 - このリポジトリ
