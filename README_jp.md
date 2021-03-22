@@ -6,21 +6,25 @@
 
 	scratch本体の改造、追加部分
 
-- [scratch-mbitlink](sc3-mbitlink/README_jp.md)
+- [scratch-mbitlink](https://github.com/marron9999/sc3-mbitlink/blob/master/README_jp.md)
 
 	scratch-linkを改造(BLE UART対応)
 
-- [mbitlink extension](sc3-mbitlink/README_jp.md)
+- [mbitlink extension](https://github.com/marron9999/sc3-mbitlink/blob/master/README_jp.md)
 
 	bluetooth extensionのBLE部を分離・改造
 
-- [mbituart extension](sc3-mbituart/README_jp.md)
+- [mbituart extension](https://github.com/marron9999/sc3-mbituart/blob/master/README_jp.md)
 
 	bluetooth extensionのGUI部を分離・改造
 
-- [maqueen extension](sc3-maqueen/README_jp.md)
+- [maqueen extension](https://github.com/marron9999/sc3-maqueen/blob/master/README_jp.md)
 
 	MaqueenのGUI部
+
+- [ブラウザ](https://github.com/marron9999/maqueen/blob/master/README_jp.md)
+
+	Web bluetoothでMaqueenを制御
 
 <hr>
 
