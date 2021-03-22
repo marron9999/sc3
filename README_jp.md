@@ -47,6 +47,12 @@
 
 <hr>
 
+## 利用手順
+
+[SETUP_jp.md](SETUP_jp.md)を見てください
+
+<hr>
+
 ## おまけ
 
 https://www.cube-d.co.jp<br>
