@@ -2,17 +2,28 @@
 
 ## scratch-desktopのインストール
 
+<<<<<<< HEAD
 - https://github.com/llk/scratch-desktop をひらき、リリース 3.20.1 (zip) をダウンロードします。
 - ダウンロードしたzipを適当なフォルダ (ここでは C:\sc3\scratch-desktop-3.20.1） に展開します。
 - フォルダ (C:\sc3\scratch-desktop-3.20.1） をカレントフォルダにして、npm install またはnpm clean-install で必要なモジュールを組み込みます。
 - npm start で scratch desktop が起動したら、次のステップに進んでください。
+=======
+- https://github.com/llk/scratch-desktop をひらき、リリース 3.20.1 (zip)をダウンロードします。
+- ダウンロードしたzipを適当なフォルダ(ここでは C:\sc3\scratch-desktop-3.20.1）に展開します。
+- フォルダ C:\sc3\scratch-desktop-3.20.1 をカレントフォルダにして、npm install またはnpm clean-install で必要なモジュールを組み込みます。
+- npm start で scratch desktopが起動したら、次のステップに進んでください。
+>>>>>>> b1030e3c333fbff0278e7ae858272ffbdcdecf30
 
 参考： ls_scratch-desktop-3.20.1.txt : 起動できたときのモジュールリスト (npm list)
 
 ## scratch-desktopへの拡張機能の組み込み
 
 - ４つのリポジトリ: sc3、sc3-mbitlink、sc3-mbituart、sc3-maqueen を git clone するか、zipをダウンロードして展開します。
+<<<<<<< HEAD
 - それぞれの scratch-vm、scratch-gui を、先のフォルダ\node_modules (C:\sc3\scratch-desktop-3.20.1\node_modules） 下にコピーします。
+=======
+- それぞれの scratch-vm、scratch-gui を、C:\sc3\scratch-desktop-3.20.1\node_modules 下にコピーします。
+>>>>>>> b1030e3c333fbff0278e7ae858272ffbdcdecf30
 - C:\sc3\scratch-desktop-3.20.1\node_modules\scratch-gui\src\lib\libraries\extensions フォルダを開き、index.jsx.txt を見て、index.jsx を編集・保存します。編集箇所は以下の２つです。
 
 ```
