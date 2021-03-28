@@ -20,11 +20,11 @@
 
 - [maqueen extension](https://github.com/marron9999/sc3-maqueen/blob/master/README_jp.md)
 
-	MaqueenのGUI部
+	maqueenのGUI部
 
 - [ブラウザ](https://github.com/marron9999/maqueen/blob/master/README_jp.md)
 
-	Web bluetoothでMaqueenを制御
+	Web bluetoothでmaqueenを制御
 
 <hr>
 
