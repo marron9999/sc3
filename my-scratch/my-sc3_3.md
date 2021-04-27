@@ -15,10 +15,10 @@ set NODE_BLE=webbluetooth
 npm start
 ```
 
-例）【linux】 `server.shI
+例）【linux】 `server.sh`
 
 ```
-# /usr/bin/sh
+#!/bin/bash
 cd ~/scratch-gui
 export PORT=80
 export NODE_BLE=webbluetooth
