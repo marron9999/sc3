@@ -10,11 +10,11 @@ const BlockType = require('./block-type');
 
 const builtinExtensions = {
 
-
+//{{
     mbitlink: () => require('../extensions/scratch3_mbitlink'),
     mbituart: () => require('../extensions/scratch3_mbituart'),
     maqueen: () => require('../extensions/scratch3_maqueen'),
-
+//}}
 
     // This is an example that isn't loaded with the other core blocks,
     // but serves as a reference for loading core blocks as extensions.

@@ -1,7 +1,7 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
-
+//{{
 import mbitlinkIconURL from './mbitlink/mbitlink_logo.png';
 import mbitlinkInsetIconURL from './mbitlink/mbitlink.png';
 import mbitlinkSmallIconURL from './mbitlink/mbitlink-40x40.png';
@@ -11,7 +11,7 @@ import mbituartInsetIconURL from './mbituart/microbit.png';
 
 import maqueenIconURL from './maqueen/maqueen.png';
 import maqueenInsetIconURL from './maqueen/maqueen-small.png';
-
+//}}
 
 import musicIconURL from './music/music.png';
 import musicInsetIconURL from './music/music-small.svg';
@@ -60,7 +60,7 @@ import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
 export default [
 
-
+//{{
     {
         name: "micro:bit link",
         extensionId: 'mbitlink',
@@ -130,7 +130,7 @@ export default [
         ),
         featured: true
     },
-
+//}}
 
     {
         name: (
