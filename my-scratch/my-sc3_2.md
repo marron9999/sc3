@@ -18,7 +18,7 @@
 
 - `src\playground` フォルダを開き、`index.ejs.txt` に記述されているマージ箇所を index.ejs に組み込み保存します。
 
-- `src\playground` フォルダを開き、`render-gui.jsx.txt` に記述されているマージ箇所を `render-gui.jsxI` に組み込み保存します。
+- `src\playground` フォルダを開き、`render-gui.jsx.txt` に記述されているマージ箇所を `render-gui.jsx` に組み込み保存します。
 
 ## 2-4 見にくい黄色ブロックの色を調整する
 

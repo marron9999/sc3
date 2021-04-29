@@ -15,17 +15,17 @@ set NODE_BLE=webbluetooth
 npm start
 ```
 
-例）【linux】 `server.shI
+例）【linux】 `server.sh`
 
 ```
-# /usr/bin/sh
+#!/bin/bash
 cd ~/scratch-gui
 export PORT=80
 export NODE_BLE=webbluetooth
 npm start
 ```
 
-## 3-3 chromeで My Scratch 3.0 を開く
+## 3-3 chromeで Scratch を開く
 
 (1) 「3-1」の修正を実施している場合
 
@@ -36,9 +36,9 @@ npm start
 
 このとき、証明書の警告がでる場合は、[詳細設定]ボタンをクリックし、[アクセスする]のリンクをクリックします。
 
-- chromeでweb-Bluetoothを使用する場合、リモート接続（localhost以外へのアクセス）で、かつ、httpsでのアクセスが必要になりますが、今回の設定では「証明書」を用意していないため、「CERT_AUTHORITY_INVALID」のエラーがでます。
+- chromeでWeb-Bluetoothを使用する場合、リモート接続（localhost以外へのアクセス）ではhttpsでのアクセスが必要になりますが、今回の設定では「証明書」を用意していないため、「CERT_AUTHORITY_INVALID」のエラーがでます。
 
-- chromeでweb-Bluetoothを使用するが、localhostでしかアクセスしない場合は、「3-1」の修正は不要です。(2)の方法で開いてください。
+- chromeでWeb-Bluetoothを使用するが、localhostでしかアクセスしない場合は、「3-1」の修正は不要です。(2)の方法で開いてください。
 
 ![](images/chrome1.png)
 
