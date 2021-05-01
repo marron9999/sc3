@@ -6,11 +6,13 @@
 
 ## 3-2 起動用バッチを作る
 
+注）「3-1」の修正を実施しない場合は、「PORT=80」となります。
+
 例）【windows】 `server.bat`
 
 ```
 cd /d c:\scratch-gui
-set PORT=80
+set PORT=443
 set NODE_BLE=webbluetooth
 npm start
 ```
@@ -20,7 +22,7 @@ npm start
 ```
 #!/bin/bash
 cd ~/scratch-gui
-export PORT=80
+export PORT=443
 export NODE_BLE=webbluetooth
 npm start
 ```
@@ -34,7 +36,7 @@ npm start
 - 別PCでscratch-guiを起動した場合は、<br>
 `https://マシン名` または `https://IPアドレス` を開きます。
 
-このとき、証明書の警告がでる場合は、[詳細設定]ボタンをクリックし、[アクセスする]のリンクをクリックします。
+このとき、証明書の警告がでるので、[詳細設定]ボタンをクリックし、[アクセスする]のリンクをクリックします。
 
 - chromeでWeb-Bluetoothを使用する場合、リモート接続（localhost以外へのアクセス）ではhttpsでのアクセスが必要になりますが、今回の設定では「証明書」を用意していないため、「CERT_AUTHORITY_INVALID」のエラーがでます。
 
@@ -50,3 +52,5 @@ npm start
 
 - 別PCでscratch-guiを起動した場合は、<br>
 `http://マシン名` または `http://IPアドレス` を開きます。
+
+※ （その4）に続く
