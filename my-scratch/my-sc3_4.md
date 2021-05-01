@@ -2,17 +2,35 @@
 
 ※ windows下の操作を前提としています
 
-## 4-1 httpsで使う自己証明を作る
+## 4-1 httpsで使う自己証明書を作る
 
 - opensslが使える状態で、以下のコマンドを実行します。<br>
 「`set`」でしている値は、事前に変更してください。
 
-```
-cd /d c:\scratch-gui\ssl
-make-cer.bat
-```
+    ```
+    cd /d c:\scratch-gui\ssl
+    make-cer.bat
+    ```
 
-## 4-2 scratch-guiを自己証明付きで起動できるようにする
+    【make-cer.bat】
+
+    ```
+    set C=JP
+    set ST=shizuoka
+    set L=numazu
+    set O=hiroyuki
+    set OU=develop
+    set CN=my-scratch
+    set DNS1=localhost
+    set DNS2=*.%CN%
+    openssl genrsa -out server.key 2048
+    openssl req -batch -new -key server.key -out server.csr -subj "/C=%C%/ST=%ST%/L=%L%/O=%O%/OU=%OU%/CN=%CN%"
+    echo subjectAltName = DNS:%DNS1%, DNS:%DNS2%> server.san
+    openssl x509 -in server.csr -out server.cer -req -signkey server.key -days 73000 -sha256 -extfile server.san
+    openssl x509 -text -in server.cer -noout > server.cer.txt
+    ```
+
+## 4-2 scratch-guiを自己証明書付きで起動できるようにする
 
 - `webpack.config.js.cert.txt` に記述されているマージ箇所を `webpack.config.js` に組み込み保存します。
 
@@ -25,7 +43,7 @@ make-cer.bat
 
 このとき、証明書の警告がでたら、[詳細設定]ボタンをクリックし、[アクセスする]のリンクをクリックします。
 
-## 4-4 クライアント（ブラウザ）に組み込む証明を作る
+## 4-4 クライアント（ブラウザ）に組み込む証明書を作る
 
 - 「保護されていない通信」部分をマウスで右クリックし、「証明書（無効）」ヲクリックします。
 
