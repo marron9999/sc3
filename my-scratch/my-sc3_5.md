@@ -27,12 +27,3 @@
 - 認証局の一覧にインポートした証明書が表示されていることを確認して終わりです。
 
     ![](images/chrome-6.png)
-
-## 4-4 chromeで Scratch を開く
-
-chromeで `https://localhost` を開きます。<br>
-このとき、証明書の警告がでないことを確認します。
-
-![](images/cert-9.png)
-
-※ 参考）その5：chromebookでのプライベート認証局の取り込み
