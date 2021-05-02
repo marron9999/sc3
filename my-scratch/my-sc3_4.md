@@ -4,15 +4,9 @@
 
 ## 4-1 httpsで使う自己証明書を作る
 
-- opensslが使える状態で、以下のコマンドを実行します。<br>
-「`set`」でしている値は、事前に変更してください。
+- `make-set.bat`内に記述されている「`set`」の値は、ご自身の環境の合わせて事前に変更してください。特に、「`IP`」にはscratch-guiを動かすPCのIPアドレスを記述してください。
 
-    ```
-    cd /d c:\scratch-gui\ssl
-    make-cer.bat
-    ```
-
-    【make-cer.bat】
+    【make-set.bat】
 
     ```
     set C=JP
@@ -21,48 +15,56 @@
     set O=hiroyuki
     set OU=develop
     set CN=my-scratch
-    set DNS1=localhost
-    set DNS2=*.%CN%
-    openssl genrsa -out server.key 2048
-    openssl req -batch -new -key server.key -out server.csr -subj "/C=%C%/ST=%ST%/L=%L%/O=%O%/OU=%OU%/CN=%CN%"
-    echo subjectAltName = DNS:%DNS1%, DNS:%DNS2%> server.san
-    openssl x509 -in server.csr -out server.cer -req -signkey server.key -days 73000 -sha256 -extfile server.san
-    openssl x509 -text -in server.cer -noout > server.cer.txt
+
+    set IP=192.168.116.65
+
+    rem set DES3=-des3
+    set DES3=
     ```
 
-## 4-2 scratch-guiを自己証明書付きで起動できるようにする
+- opensslが使える状態で、以下のコマンドを実行します。<br>
+`make-ca.bat`でプライベート認証局、中間認証局を作ります。<br>
+`make-cer.bat`でサーバー証明書を作ります。
+
+    ```
+    cd /d c:\scratch-gui\ssl
+    make-ca.bat
+    make-cer.bat
+    ```
+
+## 4-2 scratch-guiを証明書付きで起動する
 
 - `webpack.config.js.cert.txt` に記述されているマージ箇所を `webpack.config.js` に組み込み保存します。
 
-## 4-3 chromeで Scratch を開く
+- 起動用バッチで、scratch-guiを起動します。
 
-起動用バッチを起動し、chromeで `https://localhost` を開きます。
+## 4-3 クライアント（ブラウザ）に作ったプライベート認証局をシステムに取り込む
 
-- 別PCでscratch-guiを起動した場合は、<br>
-`https://マシン名` または `https://IPアドレス` を開きます。
+- コントロールパネルの「インターネットオプション」を開き、「証明書」をクリックし、「インポート」をクリックします。
 
-このとき、証明書の警告がでたら、[詳細設定]ボタンをクリックし、[アクセスする]のリンクをクリックします。
+    ![](images/cli-1.png)　![](images/cli-2.png)
 
-## 4-4 クライアント（ブラウザ）に組み込む証明書を作る
+- ウイザードの開始で「次へ」をクリックし、4-1で作ったプライベート認証局(`ca.pem`または`ca.pem.cer`)のフルパス名を指定し「次へ」をクリックします。
 
-- 「保護されていない通信」部分をマウスで右クリックし、「証明書（無効）」ヲクリックします。
+    ![](images/cli-3.png)　![](images/cli-4.png)
 
-    ![](images/cert-1.png)
+- 「証明書をすべて次のストアに配置する」を選択し、「信頼されたルート証明機関」を指定し、「次へ」をクリックし、次の画面で「完了」をクリックします。
 
-- 「詳細」タブをクリックし、「ファイルにコピー」をクリックします。
+    ![](images/cli-5.png)　![](images/cli-6.png)
 
-    ![](images/cert-2.png)　![](images/cert-3.png)
+- 「セキュリティ警告」で「はい」をクリックし、「正しくインポートされました」が表示されたら、インポートは終わりです。
 
-- ウイザードの開始で「次へ」をクリックし、「DER encoded binary X.509」を選択して「次へ」をクリックします。
+    ![](images/cli-7.png)　![](images/cli-8.png)
 
-    ![](images/cert-4.png)　![](images/cert-5.png)
+- 証明書の一覧にインポートした証明書が表示されていることを確認して終わりです。
 
-- 出力先のフルパス名を指定して「次へ」をクリックし、次の画面で「完了」をクリックします。
+    ![](images/cli-9.png)
 
-    ![](images/cert-6.png)　![](images/cert-7.png)
+## 4-4 chromeで Scratch を開く
 
-- 「正しくエクスポートされました」が表示されたら、ブラウザを一度閉じます。
+chromeで `https://localhost` を開きます。<br>
+このとき、証明書の警告がでないことを確認します。
 
-    ![](images/cert-8.png)
+![](images/cert-9.png)
 
-※ （その5）に続く
+※ 参考）その5：chromebookでのプライベート認証局の取り込み

@@ -26,7 +26,8 @@ const base = {
         disableHostCheck: true,
         https: {
             key: fs.readFileSync('ssl/server.key'),
-            cert: fs.readFileSync('ssl/server.cer')
+            cert: fs.readFileSync('ssl/server.pem'),
+            ca: fs.readFileSync('ssl/inca.pem')
         },
 //}}
         contentBase: path.resolve(__dirname, 'build'),
