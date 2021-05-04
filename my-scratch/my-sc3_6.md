@@ -59,14 +59,12 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
     `C:\scratch-gui\webpack.config.js` のhttps部分をコメントアウト（前に`//`を記述）します。
 
     ```
-    //{{
               disableHostCheck: true,
     //        https: {
     //            key: fs.readFileSync('ssl/server.key'),
     //            cert: fs.readFileSync('ssl/server.pem'),
     //            ca: fs.readFileSync('ssl/inca.pem')
     //        },
-    //}}
     ```
 
     起動用バッチのポート指定をコメントアウト（前に`rem`を記述）します。
