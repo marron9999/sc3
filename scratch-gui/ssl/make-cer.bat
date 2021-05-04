@@ -13,4 +13,7 @@ openssl x509 -req -in server.csr -sha256 -CA inca.pem -CAkey inca.key -set_seria
 openssl x509 -noout -text -in server.pem > server.pem.txt
 copy server.pem server.pem.cer
 
+copy server.pem server+inca.pem
+type inca.pem >>server+inca.pem
+
 pause
