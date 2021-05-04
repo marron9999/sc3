@@ -1,5 +1,12 @@
 # My Scratch 3.0 を作る（その3）
 
+- [その1](./my-sc3_1.md)：scratch-gui をインストールする
+- [その2](./my-sc3_2.md)：scratch-gui をカスタマイズする
+- その3：httpsで起動できるようにする
+- [その4](./my-sc3_4.md)：httpsで使う自己証明書を作る
+- [その5](./my-sc3_5.md): 参考）chromebookでの認証局の取り込み
+- [その6](./my-sc3_6.md)：nginxでscratch-guiとwebsocketサーバーを統合する
+
 ## 3-1 scratch-guiをhttpsで起動できるようにする
 
 - `webpack.config.js.txt` に記述されているマージ箇所を `webpack.config.js` に組み込み保存します。
@@ -53,4 +60,4 @@ npm start
 - 別PCでscratch-guiを起動した場合は、<br>
 `http://マシン名` または `http://IPアドレス` を開きます。
 
-※ （その4）に続く
+※ （[その4](./my-sc3_4.md)）に続く

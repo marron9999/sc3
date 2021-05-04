@@ -1,5 +1,12 @@
 # My Scratch 3.0 を作る（その2）
 
+- [その1](./my-sc3_1.md)：scratch-gui をインストールする
+- その2：scratch-gui をカスタマイズする
+- [その3](./my-sc3_3.md)：httpsで起動できるようにする
+- [その4](./my-sc3_4.md)：httpsで使う自己証明書を作る
+- [その5](./my-sc3_5.md): 参考）chromebookでの認証局の取り込み
+- [その6](./my-sc3_6.md)：nginxでscratch-guiとwebsocketサーバーを統合する
+
 ## 2-1 イベントブロック等の形状を「ネコ」キャラに変更する
 
 - `C:\sc3\sc3\my-scratch\scratch-blocks.zip` を開き、6つのjsファイル（`*compressed*.js`）を `node_modules\scratch-blocks` フォルダにコビー（上書き）します。
@@ -43,4 +50,4 @@
 
 ![](images/bluetooth.png)
 
-※ （その3）に続く
+※ （[その3](./my-sc3_3.md)）に続く

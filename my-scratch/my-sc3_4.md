@@ -1,6 +1,11 @@
 # My Scratch 3.0 を作る（その4）
 
-※ windows下の操作を前提としています
+- [その1](./my-sc3_1.md)：scratch-gui をインストールする
+- [その2](./my-sc3_2.md)：scratch-gui をカスタマイズする
+- [その3](./my-sc3_3.md)：httpsで起動できるようにする
+- その4：httpsで使う自己証明書を作る
+- [その5](./my-sc3_5.md): 参考）chromebookでの認証局の取り込み
+- [その6](./my-sc3_6.md)：nginxでscratch-guiとwebsocketサーバーを統合する
 
 ## 4-1 httpsで使う自己証明書を作る
 
@@ -67,4 +72,6 @@ chromeで `https://localhost` を開きます。<br>
 
 ![](images/cert-9.png)
 
-※ 参考）その5：chromebookでのプライベート認証局の取り込み
+※ 参考）[その5](./my-sc3_5.md)：chromebookでの認証局の取り込み
+
+※ （[その6](./my-sc3_6.md)）に続く
