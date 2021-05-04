@@ -2,7 +2,7 @@ rem https://http2.try-and-test.net/openssl_simple_ca.html
 
 call make-set.bat
 
-rem --- ca.pem : root certification ---
+rem --- ca.pem : root ca certification ---
 
 openssl genrsa -out ca.key %DES3% 2048
 openssl req  -new -x509 -key ca.key -sha256  -days 1825 -extensions v3_ca  -out ca.pem -subj "/C=%C%/ST=%ST%/O=%O%/CN=%CN% CA"
@@ -10,7 +10,7 @@ openssl x509 -in ca.pem -out ca.pem
 openssl x509 -noout -text -in ca.pem > ca.pem.txt
 copy ca.pem ca.pem.cer
 
-rem --- inca.pem : root certification ---
+rem --- inca.pem : inter ca certification ---
 
 openssl genrsa -out inca.key %DES3% 2048
 openssl req -new -key inca.key -sha256 -outform PEM -keyform PEM -out inca.csr  -subj "/C=%C%/ST=%ST%/O=%O%/CN=%CN% Inter CA"

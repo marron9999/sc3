@@ -2,7 +2,7 @@ rem https://http2.try-and-test.net/openssl_simple_ca.html
 
 call make-set.bat
 
-rem --- ca.pem : server certification ---
+rem --- server.pem : server certification ---
 
 openssl genrsa -out server.key %DES3% 2048
 openssl req -new -key server.key -outform PEM -keyform PEM -sha256 -out server.csr -subj "/C=%C%/ST=%ST%/L=%L%/O=%O%/OU=%OU%/CN=%CN%"
