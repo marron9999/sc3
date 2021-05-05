@@ -37,7 +37,7 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
 - `c:\sc3\scratch-gui\ssl`フォルダを`C:\nginx-1.19.10`にコピーします。<br>
 コピーする前に自己証明書は「[その4](./my-sc3_4.md)」で作っておいてください。　 
 
-- ‘このフォルダ下にある「nginx.conf.txt」の「`##{{`」と「`##}}`」で囲まれた箇所を参考に`C:\nginx-1.19.10\conf\nginx.conf`を修正します。
+- このフォルダ下にある「nginx.conf.txt」の「`##{{`」と「`##}}`」で囲まれた箇所を参考に`C:\nginx-1.19.10\conf\nginx.conf`を修正します。
 
 <hr>
 

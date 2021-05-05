@@ -4,8 +4,10 @@
 - [その2](./my-sc3_2.md)：scratch-gui をカスタマイズする
 - [その3](./my-sc3_3.md)：httpsで起動できるようにする
 - その4：httpsで使う自己証明書を作る
-- [その5](./my-sc3_5.md): 参考）chromebookでの認証局の取り込み
+- [その5](./my-sc3_5.md)：参考）chromebookでの認証局の取り込み
 - [その6](./my-sc3_6.md)：nginxでscratch-guiとwebsocketサーバーを統合する
+
+<hr>
 
 ## 4-1 httpsで使う自己証明書を作る
 
@@ -37,11 +39,15 @@
     make-cer.bat
     ```
 
+<hr>
+
 ## 4-2 scratch-guiを証明書付きで起動する
 
 - `webpack.config.js.cert.txt` に記述されているマージ箇所を `webpack.config.js` に組み込み保存します。
 
 - 起動用バッチで、scratch-guiを起動します。
+
+<hr>
 
 ## 4-3 クライアント（ブラウザ）に作ったプライベート認証局をシステムに取り込む
 
@@ -65,12 +71,16 @@
 
     ![](images/cli-9.png)
 
+<hr>
+
 ## 4-4 chromeで Scratch を開く
 
 chromeで `https://localhost` を開きます。<br>
 このとき、証明書の警告がでないことを確認します。
 
 ![](images/cert-9.png)
+
+<hr>
 
 ※ 参考）[その5](./my-sc3_5.md)：chromebookでの認証局の取り込み
 

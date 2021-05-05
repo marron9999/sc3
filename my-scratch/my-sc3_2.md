@@ -4,8 +4,10 @@
 - その2：scratch-gui をカスタマイズする
 - [その3](./my-sc3_3.md)：httpsで起動できるようにする
 - [その4](./my-sc3_4.md)：httpsで使う自己証明書を作る
-- [その5](./my-sc3_5.md): 参考）chromebookでの認証局の取り込み
+- [その5](./my-sc3_5.md)：参考）chromebookでの認証局の取り込み
 - [その6](./my-sc3_6.md)：nginxでscratch-guiとwebsocketサーバーを統合する
+
+<hr>
 
 ## 2-1 イベントブロック等の形状を「ネコ」キャラに変更する
 
@@ -13,41 +15,66 @@
 
 ![](images/cat-hat.png)
 
+<hr>
+
 ## 2-2 My Scratchのアイコンを変更する
 
 その1でコピーしたアイコン（オリジナルイメージファイルは`src\components\coming-soon\cool-cat.png`）に変更します。
 
-- `src\components\menu-bar` フォルダを開き、`menu-bar.jsx.txt` に記述されているマージ箇所を `menu-bar.jsx` に組み込み保存します。
+- `src\components\menu-bar` フォルダを開き
+
+	- `menu-bar.jsx.txt` に記述されているマージ箇所を `menu-bar.jsx` に組み込み保存します。
 
 ![](images/icon.png)
 
+<hr>
+
 ## 2-3 メニューバーの不要なメニューを消す
 
-- `src\playground` フォルダを開き、`index.ejs.txt` に記述されているマージ箇所を index.ejs に組み込み保存します。
+- `src\playground` フォルダを開き
 
-- `src\playground` フォルダを開き、`render-gui.jsx.txt` に記述されているマージ箇所を `render-gui.jsx` に組み込み保存します。
+	- `index.ejs.txt` に記述されているマージ箇所を index.ejs に組み込み保存します。
+	- `render-gui.jsx.txt` に記述されているマージ箇所を `render-gui.jsx` に組み込み保存します。
+
+<hr>
 
 ## 2-4 見にくい黄色ブロックの色を調整する
 
-- `src\lib` フォルダを開き、`make-toolbox-xml.js.txt` に記述されているマージ箇所を `make-toolbox-xml.js` に組み込み保存します。<br>
+- `src\lib` フォルダを開き
+
+	- `make-toolbox-xml.js.txt` に記述されているマージ箇所を `make-toolbox-xml.js` に組み込み保存します。<br>
 マージ箇所は「`<!-- {{ -->`」と「`<!-- }} -->`」で囲まれた場所です。
 
-- `src\containers` フォルダを開き、`blocks.jsx.txt` に記述されているマージ箇所を `blocks.jsx` に組み込み保存します。
+- `src\containers` フォルダを開き
+
+	- `blocks.jsx.txt` に記述されているマージ箇所を `blocks.jsx` に組み込み保存します。
 
 【カスタマイズ前】　　　　　　　　　　　　【カスタマイズ後】
     
 ![](images/color.png)
 
+<hr>
+
 ## 2-5 ScratchでWeb-Bluetoothを使えるようにする
 
-- `src/containers` フォルダを開き、`gui.jsx.txt` に記述されているマージ箇所を `gui.jsx` に組み込み保存します。
+- `src/containers` フォルダを開き
 
-- `node_modules\scratch-vm\src` フォルダを開き、`virtual-machine.js.txt` に記述されているマージ箇所を `virtual-machine.js` に組み込み保存します。
+	- `gui.jsx.txt` に記述されているマージ箇所を `gui.jsx` に組み込み保存します。
 
-- `node_modules\scratch-vm\src\engine` フォルダを開き、`runtime.js.txt` に記述されているマージ箇所を `runtime.js` に組み込み保存します。
+- `node_modules\scratch-vm\src` フォルダを開き
 
-- `node_modules\scratch-vm\src\io` フォルダを開き、`ble.js.txt` に記述されているマージ箇所を `ble.js` に組み込み保存します。
+	- `virtual-machine.js.txt` に記述されているマージ箇所を `virtual-machine.js` に組み込み保存します。
+
+- `node_modules\scratch-vm\src\engine` フォルダを開き
+
+	- `runtime.js.txt` に記述されているマージ箇所を `runtime.js` に組み込み保存します。
+
+- `node_modules\scratch-vm\src\io` フォルダを開き
+
+	- `ble.js.txt` に記述されているマージ箇所を `ble.js` に組み込み保存します。
 
 ![](images/bluetooth.png)
+
+<hr>
 
 ※ （[その3](./my-sc3_3.md)）に続く
