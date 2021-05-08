@@ -44,9 +44,9 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
 
 <hr>
 
-## 6-2 homeroom (https/websocketサーバー)を起動する
+## 6-2 homeroom (http/websocketサーバー)を起動する
 
-- 以下のコマンドで homeroom (https/websocketサーバー) を起動します。
+- 以下のコマンドで homeroom (http/websocketサーバー) を起動します。
 
     ```
     cd /d c:\sc3\homeroom

@@ -10,9 +10,10 @@
 
 <hr>
 
-【Linux: chromebook】
+【Linux : chromebook】
 
-scratch-guiとwebsocketサーバーを統合したサイト環境を作ります。
+scratch-guiとwebsocketサーバーを統合したサイト環境を作ります。<br>
+chromebookのlinux環境のポート転送として「8080」を事前に設定しておいてください。
 
 ```
 【ブラウザ】　→→→　nginx
@@ -27,7 +28,7 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
 
 　　wss://server:8080/homeroom/　→→→→→→→　homeroom (websocket server)
 　　　　　　　　　　　　　　　　　　　　（~/homeroom）
-　　　　　　　　　　　　　　　　　　　　ws://127.0.0.1:80602/
+　　　　　　　　　　　　　　　　　　　　ws://127.0.0.1:8602/
 ```
 
 <hr>
@@ -51,11 +52,11 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
 
 <hr>
 
-## 6-2 homeroom (https/websocketサーバー)を起動する
+## 6-2 homeroom (http/websocketサーバー)を起動する
 
 - server.js の中に書かれているポート番号 8080 を 8602 に変更します。
 
-- 以下のコマンドで homeroom (https/websocketサーバー) を起動します。
+- 以下のコマンドで homeroom (http/websocketサーバー) を起動します。
 
     ```
     cd ~/homeroom
@@ -68,7 +69,7 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
 
 - 3-1、3-2で修正した内容を変更します。
 
-    `~/scratch-gui\webpack.config.js` のhttps部分をコメントアウト（前に`//`を記述）します。
+    `~/scratch-gui/webpack.config.js` のhttps部分をコメントアウト（前に`//`を記述）します。
 
     ```
               disableHostCheck: true,
@@ -79,7 +80,7 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
     //        },
     ```
 
-    起動用バッチのポート指定をコメントアウト（前に`#`を記述）します。
+    起動用シェル(バッチ)のポート指定をコメントアウト（前に`#`を記述）します。
 
     ```
     #!/bin/bash
@@ -89,7 +90,7 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
     npm start
     ```
 
-- 修正した起動用バッチで、scratch-gui を起動します。
+- 修正した起動用シェルで、scratch-gui を起動します。
 
 <hr>
 
