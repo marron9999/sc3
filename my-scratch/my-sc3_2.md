@@ -5,7 +5,8 @@
 - [その3](./my-sc3_3.md)：httpsで起動できるようにする
 - [その4](./my-sc3_4.md)：httpsで使う自己証明書を作る
 - [その5](./my-sc3_5.md)：参考）chromebookでの認証局の取り込み
-- [その6](./my-sc3_6.md)：nginxでscratch-guiとwebsocketサーバーを統合する
+- [その6](./my-sc3_6.md)：参考）\[WIN\] nginxでサーバーを統合する
+- [その7](./my-sc3_7.md)：参考）\[Linux\] nginxでサーバーを統合する
 
 <hr>
 
@@ -74,6 +75,18 @@
 	- `ble.js.txt` に記述されているマージ箇所を `ble.js` に組み込み保存します。
 
 ![](images/bluetooth.png)
+
+<hr>
+
+## 2-6 node_modules他の不具合っぽい現象を修正する
+
+- `node_modules\webpack-dev-server\client\utils` フォルダを開き
+
+	- `C:\sc3\sc3\my-scratch\createSocketUrl.js.txt` に記述されている修正箇所（`//{{`と`//}}`で示された箇所）を `createSocketUrl.js` に組み込み保存します。
+
+- `node_modules\scratch-audio\src` フォルダを開き
+
+	- `C:\sc3\sc3\my-scratch\AudioEngine.js.txt` に記述されている修正箇所（`//{{`と`//}}`で示された箇所）を `AudioEngine.js` に組み込み保存します。
 
 <hr>
 

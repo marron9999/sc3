@@ -5,7 +5,8 @@
 - [その3](./my-sc3_3.md)：httpsで起動できるようにする
 - [その4](./my-sc3_4.md)：httpsで使う自己証明書を作る
 - その5：参考）chromebookでの認証局の取り込み
-- [その6](./my-sc3_6.md)：nginxでscratch-guiとwebsocketサーバーを統合する
+- [その6](./my-sc3_6.md)：参考）\[WIN\] nginxでサーバーを統合する
+- [その7](./my-sc3_7.md)：参考）\[Linux\] nginxでサーバーを統合する
 
 <hr>
 
@@ -41,4 +42,6 @@
 
 <hr>
 
-※ （[その6](./my-sc3_6.md)）に続く
+※ 参考）[その6](./my-sc3_6.md)：参考）\[WIN\] nginxでサーバーを統合する
+
+※ 参考）[その7](./my-sc3_7.md)：参考）\[Linux\] nginxでサーバーを統合する

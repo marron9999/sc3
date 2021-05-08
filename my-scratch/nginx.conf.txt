@@ -31,12 +31,6 @@ http {
 
     #gzip  on;
 
-##{{
-	upstream homeroom {
-		server 127.0.0.1:8080;
-	}
-##}}
-
     server {
         listen       80;
         server_name  localhost;
@@ -99,6 +93,10 @@ http {
 
 
 ##{{
+    upstream servers {
+        server 127.0.0.1:8601;
+        server 127.0.0.1:8080;
+    }
     server {
         listen       443 ssl;
         server_name  localhost;
@@ -106,16 +104,22 @@ http {
         ssl_certificate      ../ssl/server+inca.pem;
         ssl_certificate_key  ../ssl/server.key;
 
-       location /scratch {
+        location /scratch/sockjs-node {
+            proxy_pass http://127.0.0.1:8601/sockjs-node;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+        }
+        location /scratch {
             rewrite /scratch(.*) $1 break;
-            proxy_pass http://127.0.0.1:8601/$1;
+            proxy_pass http://127.0.0.1:8601$1;
         }
         location /homeroom/wss {
             rewrite /homeroom/wss(.*) $1 break;
-            proxy_pass http://127.0.0.1:8080/wss/$1;
+            proxy_pass http://127.0.0.1:8080/wss$1;
         }
         location /homeroom {
-            proxy_pass http://homeroom;
+            proxy_pass http://127.0.0.1:8080;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";

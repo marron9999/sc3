@@ -5,6 +5,7 @@ set O=hiroyuki
 set OU=develop
 set CN=my-scratch
 
+set HN=helios7
 set IP=192.168.116.65
 
 rem set DES3=-des3

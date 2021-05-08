@@ -5,13 +5,15 @@
 - [その3](./my-sc3_3.md)：httpsで起動できるようにする
 - その4：httpsで使う自己証明書を作る
 - [その5](./my-sc3_5.md)：参考）chromebookでの認証局の取り込み
-- [その6](./my-sc3_6.md)：nginxでscratch-guiとwebsocketサーバーを統合する
+- [その6](./my-sc3_6.md)：参考）\[WIN\] nginxでサーバーを統合する
+- [その7](./my-sc3_7.md)：参考）\[Linux\] nginxでサーバーを統合する
 
 <hr>
 
 ## 4-1 httpsで使う自己証明書を作る
 
-- `make-set.bat`内に記述されている「`set`」の値は、ご自身の環境の合わせて事前に変更してください。特に、「`IP`」にはscratch-guiを動かすPCのIPアドレスを記述してください。
+- `make-set.bat`内に記述されている「`set`」の値は、ご自身の環境の合わせて事前に変更してください。<br>
+特に、「`HN`」、「`IP`」にはscratch-guiを動かすPCの名前とIPアドレスを記述してください。
 
     【make-set.bat】
 
@@ -23,6 +25,7 @@
     set OU=develop
     set CN=my-scratch
 
+    set HN=helios7
     set IP=192.168.116.65
 
     rem set DES3=-des3

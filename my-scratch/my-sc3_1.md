@@ -5,7 +5,8 @@
 - [その3](./my-sc3_3.md)：httpsで起動できるようにする
 - [その4](./my-sc3_4.md)：httpsで使う自己証明書を作る
 - [その5](./my-sc3_5.md)：参考）chromebookでの認証局の取り込み
-- [その6](./my-sc3_6.md)：nginxでscratch-guiとwebsocketサーバーを統合する
+- [その6](./my-sc3_6.md)：参考）\[WIN\] nginxでサーバーを統合する
+- [その7](./my-sc3_7.md)：参考）\[Linux\] nginxでサーバーを統合する
 
 <hr>
 
@@ -18,8 +19,17 @@
 
 githubから「scratch-gui」をダウンロードします。
 
+【windows】
+
 ```
 cd /d C:\
+git clone https://github.com/llk/scratch-gui.git
+```
+
+【linux】
+
+```
+cd  ~
 git clone https://github.com/llk/scratch-gui.git
 ```
 
@@ -44,9 +54,23 @@ chromeで `http://localhost:8601` を開きます。
 
 必要な拡張機能、拡張資材をダウンロードします。
 
+【windows】 
+
 ```
 md /d C:\sc3
 cd /d c:\sc3
+git clone https://github.com/marron9999/sc3.git
+git clone https://github.com/marron9999/sc3-mbitlink.git
+git clone https://github.com/marron9999/sc3-mbituart.git
+git clone https://github.com/marron9999/sc3-maqueen.git
+git clone https://github.com/marron9999/sc3-homeroom.git
+git clone https://github.com/marron9999/homeroom.git
+```
+
+【linux】 
+
+```
+cd  ~
 git clone https://github.com/marron9999/sc3.git
 git clone https://github.com/marron9999/sc3-mbitlink.git
 git clone https://github.com/marron9999/sc3-mbituart.git
@@ -76,6 +100,8 @@ xcopy c:\sc3\sc3-homeroom\scratch-vm\*.* node_modules\scratch-vm /f /y /e
 【linux】 cpコマンドで拡張機能を組み込みます。
 
 ```
+cd ~
+
 cp -r -f -v sc3/scratch-gui .
 cp -r -f -v sc3-mbitlink/scratch-gui .
 cp -r -f -v sc3-mbituart/scratch-gui .

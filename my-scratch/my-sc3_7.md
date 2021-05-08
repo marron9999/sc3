@@ -5,51 +5,60 @@
 - [その3](./my-sc3_3.md)：httpsで起動できるようにする
 - [その4](./my-sc3_4.md)：httpsで使う自己証明書を作る
 - [その5](./my-sc3_5.md)：参考）chromebookでの認証局の取り込み
-- その6：参考）\[WIN\] nginxでサーバーを統合する
-- [その7](./my-sc3_7.md)：参考）\[Linux\] nginxでサーバーを統合する
+- [その6](./my-sc3_6.md)：参考）\[WIN\] nginxでサーバーを統合する
+- その7：参考）\[Linux\] nginxでサーバーを統合する
 
 <hr>
 
-【Windows】
+【Linux: chromebook】
 
 scratch-guiとwebsocketサーバーを統合したサイト環境を作ります。
 
 ```
-【ブラウザ】　→→→　nginx（C:\nginx-1.19.10）
+【ブラウザ】　→→→　nginx
 
-　　https://server/scratch/　→→→→→→　scratch-gui
-　　　　　　　　　　　　　　　　　　　　（C:\scratch-gui）
+　　https://server:8080/scratch/　→→→→→→　scratch-gui
+　　　　　　　　　　　　　　　　　　　　（~/scratch-gui）
 　　　　　　　　　　　　　　　　　　  　http://127.0.0.1:8601/
 
-　　https://server/homeroom/wss/　→　homeroom (http server)
-　　　　　　　　　　　　　　　　　　　　（C:\sc3\homeroom\wss）
-　　　　　　　　　　　　　　　　　　　　http://127.0.0.1:8080/wss/
+　　https://server:8080/homeroom/wss/　→　homeroom (http server)
+　　　　　　　　　　　　　　　　　　　　（~/homeroom\wss）
+　　　　　　　　　　　　　　　　　　　　http://127.0.0.1:8602/wss/
 
-　　wss://server/homeroom/　→→→→→→→　homeroom (websocket server)
-　　　　　　　　　　　　　　　　　　　　（C:\sc3\homeroom）
-　　　　　　　　　　　　　　　　　　　　ws://127.0.0.1:8080/
+　　wss://server:8080/homeroom/　→→→→→→→　homeroom (websocket server)
+　　　　　　　　　　　　　　　　　　　　（~/homeroom）
+　　　　　　　　　　　　　　　　　　　　ws://127.0.0.1:80602/
 ```
 
 <hr>
 
 ## 6-1 nginxをインストールする
 
-- http://nginx.org/en/download.html から利用するnginx（nginx/Windows-1.19.10）をダウンロードして展開します。<br>
-ここでは、「`C:\nginx-1.19.10`」に展開したとしています。
+- 以下のコマンドで nginx をインストールします。
 
-- `c:\sc3\scratch-gui\ssl`フォルダを`C:\nginx-1.19.10`にコピーします。<br>
+    ```
+    sudo apt install nginx
+    ```
+
+- `~/sc3/scratch-gui/ssl`フォルダを`/etc/nginx/`にコピーします。<br>
 コピーする前に自己証明書は「[その4](./my-sc3_4.md)」で作っておいてください。　 
 
-- このフォルダ下にある「nginx.conf.txt」の「`##{{`」と「`##}}`」で囲まれた箇所を参考に`C:\nginx-1.19.10\conf\nginx.conf`を修正します。
+- このフォルダ下にある「`nginx.conf.default.txt`」を `/etc/nginx/sites-available/`にコピーします。
+
+- `default` を `default.org`に変名し、`nginx.conf.default.txt` を `default` に変名します。
+
+- `sudo /usr/sbin/nginx -t` でエラーが出ないことを確認します。
 
 <hr>
 
 ## 6-2 homeroom (https/websocketサーバー)を起動する
 
+- server.js の中に書かれているポート番号 8080 を 8602 に変更します。
+
 - 以下のコマンドで homeroom (https/websocketサーバー) を起動します。
 
     ```
-    cd /d c:\sc3\homeroom
+    cd ~/homeroom
     node server.js
     ```
 
@@ -59,7 +68,7 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
 
 - 3-1、3-2で修正した内容を変更します。
 
-    `C:\scratch-gui\webpack.config.js` のhttps部分をコメントアウト（前に`//`を記述）します。
+    `~/scratch-gui\webpack.config.js` のhttps部分をコメントアウト（前に`//`を記述）します。
 
     ```
               disableHostCheck: true,
@@ -70,12 +79,13 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
     //        },
     ```
 
-    起動用バッチのポート指定をコメントアウト（前に`rem`を記述）します。
+    起動用バッチのポート指定をコメントアウト（前に`#`を記述）します。
 
     ```
-    cd /d C:\scratch-gui
-    rem set PORT=443
-    set NODE_BLE=webbluetooth
+    #!/bin/bash
+    cd ~/scratch-gui
+    # export PORT=443
+    export NODE_BLE=webbluetooth
     npm start
     ```
 
@@ -88,22 +98,20 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
 - 以下のコマンドで nginx を起動します。
 
     ```
-    cd /d c:\nginx-1.19.10
-    start nginx
+    sudo /usr/sbin/nginx
     ```
 
 - nginx の停止は、以下のコマンドでできます。
 
     ```
-    cd /d c:\nginx-1.19.10
-    nginx -s stop
+    sudo /usr/sbin/nginx -s stop
     ```
 
 <hr>
 
 ## 6-5 ブラウザから scratch-gui を開く
 
-⇒　https://localhost/scratch/
+⇒　https://localhost:8080/scratch/
 
 - scratchのエディタが表示されれば正しく動作しています。
 
@@ -111,12 +119,12 @@ scratch-guiとwebsocketサーバーを統合したサイト環境を作ります
 
 ## 6-6 ブラウザから homeroom (httpサーバー)を開く
 
-⇒　https://localhost/homeroom/wss/server.html
+⇒　https://localhost:8080/homeroom/wss/server.html
 
 - 上段に「R1」 ~ 「R9」の文字列が表示されれば正しく動作しています。
 
 
-⇒　https://localhost/homeroom/wss/client.html
+⇒　https://localhost:8080/homeroom/wss/client.html
 
 - server.htmlを開いたときに右上に表示されているPINの文字列（4文字）をPINのフィールドに入力して \[join\]ボタンをクリックして入室できれば正しく動作しています。<br>
 このとき、server.htmlの表示に入室者の情報が反映されています。
