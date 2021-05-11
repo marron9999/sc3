@@ -47,10 +47,11 @@ class GUI extends React.Component {
         this.props.onVmInit(this.props.vm);
 
 //{{
-        if(this.props.vmScratchLink != undefined)
-            this.props.vm.scratchLink = this.props.vmScratchLink;
+		if(this.props.vmScratchLink != undefined)
+			this.props.vm.scratchLink = this.props.vmScratchLink;
+		if(this.props.staticAssets != undefined)
+			this.props.vm.staticAssets = this.props.staticAssets;
 //}}
-
     }
     componentDidUpdate (prevProps) {
         if (this.props.projectId !== prevProps.projectId && this.props.projectId !== null) {
