@@ -59,6 +59,10 @@ move c:\scratch-desktop\static\assets c:\scratch-gui\static
 	- `sound-library.jsx.txt` に記述されているマージ箇所を `sound-library.jsx` に組み込み保存します。
 	- `sprite-library.jsx.txt` に記述されているマージ箇所を `sprite-library.jsx` に組み込み保存します。
 
+- `src\lib` フォルダを開き
+
+	- `storage.js.txt` に記述されているマージ箇所を `storage.js` に組み込み保存します。
+
 - `webpack.config.js.local.txt` に記述されているマージ箇所を `webpack.config.js` に組み込み保存します。<br>
 注）httpsの定義部分はマージ不要です。
 
