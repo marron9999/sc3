@@ -43,14 +43,11 @@ import {setIsScratchDesktop} from '../lib/isScratchDesktop.js';
 class GUI extends React.Component {
     componentDidMount () {
         setIsScratchDesktop(this.props.isScratchDesktop);
-        this.props.onStorageInit(storage);
-        this.props.onVmInit(this.props.vm);
-
-//{{
-		if(this.props.vmScratchLink != undefined)
-			this.props.vm.scratchLink = this.props.vmScratchLink;
-		if(this.props.staticAssets != undefined)
-			this.props.vm.staticAssets = this.props.staticAssets;
+//}}
+//      this.props.onStorageInit(storage);
+//      this.props.onVmInit(this.props.vm);
+        this.props.onStorageInit(storage, this.props);
+        this.props.onVmInit(this.props.vm, this.props);
 //}}
     }
     componentDidUpdate (prevProps) {
@@ -125,11 +122,28 @@ GUI.propTypes = {
 
 GUI.defaultProps = {
     isScratchDesktop: false,
-    onStorageInit: storageInstance => storageInstance.addOfficialScratchWebStores(),
+//{{
+//  onStorageInit: storageInstance => storageInstance.addOfficialScratchWebStores(),
+    onStorageInit: (storageInstance, props) => {
+        storageInstance.addOfficialScratchWebStores();
+        if(props.staticAsset != undefined)
+            storageInstance.staticAsset = props.staticAsset;
+    },
+//}}
     onProjectLoaded: () => {},
     onUpdateProjectId: () => {},
-    onVmInit: (/* vm */) => {}
-};
+//{{
+//  onVmInit: (/* vm */) => {}
+    onVmInit: (vm, props) => {
+        vm.scratchLink = true;
+        vm.staticAsset = false;
+        if(props.vmScratchLink != undefined)
+           vm.scratchLink = props.vmScratchLink;
+        if(props.staticAsset != undefined)
+            vm.staticAsset = props.staticAsset;
+   }
+//}}
+}
 
 const mapStateToProps = state => {
     const loadingState = state.scratchGui.projectState.loadingState;

@@ -140,6 +140,9 @@ class SoundLibrary extends React.PureComponent {
             rate: soundItem.rate,
             sampleCount: soundItem.sampleCount,
             name: soundItem.name
+//{{
+            , staticAsset: item.staticAsset
+//}}
         };
         this.props.vm.addSound(vmSound).then(() => {
             this.props.onNewSound();
@@ -172,7 +175,7 @@ class SoundLibrary extends React.PureComponent {
                 onItemSelected={this.handleItemSelected}
                 onRequestClose={this.props.onRequestClose}
 //{{
-                staticAssets={this.props.vm.staticAssets}
+                staticAsset={this.props.vm.staticAsset}
 //}}
             />
         );

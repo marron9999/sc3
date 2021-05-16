@@ -42,7 +42,7 @@ class SpriteLibrary extends React.PureComponent {
                 onItemSelected={this.handleItemSelect}
                 onRequestClose={this.props.onRequestClose}
 //{{
-                staticAssets={this.props.vm.staticAssets}
+                staticAsset={this.props.vm.staticAsset}
 //}
             />
         );

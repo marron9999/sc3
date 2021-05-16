@@ -13,7 +13,7 @@
 
 ## 2-1 イベントブロック等の形状を「ネコ」キャラに変更する
 
-- `C:\sc3\sc3\my-scratch\scratch-blocks.zip` を開き、6つのjsファイル（`*compressed*.js`）を `node_modules\scratch-blocks` フォルダにコビー（上書き）します。
+- `C:\sc3\sc3\my-scratch\scratch-blocks.zip` を開き、6つのjsファイル（`*compressed*.js`）と`msg`フォルダを `node_modules\scratch-blocks` フォルダにコビー（上書き）します。
 
 ![](images/cat-hat.png)
 
@@ -40,7 +40,7 @@
 
 <hr>
 
-## 2-4 見にくい黄色ブロックの色を調整する
+## 2-4 演算に`eval`ブロックを追加し、見にくい黄色ブロックの色を調整する
 
 - `src\lib` フォルダを開き
 
@@ -51,9 +51,15 @@
 
 	- `blocks.jsx.txt` に記述されているマージ箇所を `blocks.jsx` に組み込み保存します。
 
+- `node_modules\scratch-vm\src\blocks` フォルダを開き
+
+	- `scratch3_operators.js.txt` に記述されているマージ箇所を `scratch3_operators.js` に組み込み保存します。
+
 【カスタマイズ前】　　　　　　　　　　　　【カスタマイズ後】
     
 ![](images/color.png)
+
+![](images/eval.png)
 
 <hr>
 

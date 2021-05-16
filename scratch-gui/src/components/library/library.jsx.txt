@@ -128,6 +128,9 @@ class LibraryComponent extends React.Component {
         this.setState({filterQuery: ''});
     }
     getFilteredData () {
+//{{
+        this.props.data.filter(dataItem => { dataItem.staticAsset=this.props.staticAsset; });
+//}}
         if (this.state.selectedTag === 'all') {
             if (!this.state.filterQuery) return this.props.data;
             return this.props.data.filter(dataItem => (
@@ -231,7 +234,7 @@ class LibraryComponent extends React.Component {
                             onMouseLeave={this.handleMouseLeave}
                             onSelect={this.handleSelect}
 //{{
-                            staticAssets={this.props.staticAssets}
+                            staticAsset={this.props.staticAsset}
 //}}
                         />
                     )
@@ -279,7 +282,7 @@ LibraryComponent.propTypes = {
     tags: PropTypes.arrayOf(PropTypes.shape(TagButton.propTypes)),
     title: PropTypes.string.isRequired
 //{{
-    , staticAssets: PropTypes.bool
+    , staticAsset: PropTypes.bool
 //}}
 };
 

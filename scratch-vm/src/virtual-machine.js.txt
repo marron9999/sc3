@@ -166,10 +166,6 @@ class VirtualMachine extends EventEmitter {
         this.flyoutBlockListener = this.flyoutBlockListener.bind(this);
         this.monitorBlockListener = this.monitorBlockListener.bind(this);
         this.variableListener = this.variableListener.bind(this);
-
-	if(this.scratchLink != undefined)
-	        this.runtime.scratchLink = this.scratchLink;
-	
     }
 
     /**
@@ -298,7 +294,11 @@ class VirtualMachine extends EventEmitter {
 
 //{{
     getPeripheralIsWebSocket (extensionId) {
-        return this.runtime.getPeripheralIsWebSocket(extensionId);
+		if(this.scratchLink != undefined
+		&& this.scratchLink == false) {
+	        return this.runtime.getPeripheralIsWebSocket(extensionId);
+		}
+		return true;
     }
 //}}
 

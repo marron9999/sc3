@@ -23,6 +23,7 @@ const handleTelemetryModalOptOut = () => {
     log('User opted out of telemetry');
 };
 
+
 /*
  * Render the GUI playground. This is a separate function because importing anything
  * that instantiates the VM causes unsupported browsers to crash
@@ -62,7 +63,8 @@ export default appTarget => {
     }
 
 //{{
-    const webbluetooth = (process.env.NODE_BLE === 'webbluetooth');
+    const staticAsset = (process.env.ASSETS == 'static');
+    const webbluetooth = (process.env.NODE_BLE == 'webbluetooth');
 //}}
 
     ReactDOM.render(
@@ -72,10 +74,7 @@ export default appTarget => {
                 canEditTitle
                 isScratchDesktop
                 showTelemetryModal
-//{{
-                //canSave
                 canSave={false}
-//}}
                 onTelemetryModalCancel={handleTelemetryModalCancel}
                 onTelemetryModalOptIn={handleTelemetryModalOptIn}
                 onTelemetryModalOptOut={handleTelemetryModalOptOut}
@@ -84,19 +83,21 @@ export default appTarget => {
             webbluetooth?
             <WrappedGui
                 canEditTitle
-                backpackVisible
+                //backpackVisible
                 showComingSoon={false}
                 backpackHost={backpackHost}
                 canSave={false}
                 //onClickLogo={onClickLogo}
+                staticAsset={staticAsset}
                 vmScratchLink={false}
             /> :
             <WrappedGui
                 canEditTitle
-                backpackVisible
+                //backpackVisible
                 showComingSoon={false}
                 backpackHost={backpackHost}
                 canSave={false}
+                staticAsset={staticAsset}
                 //onClickLogo={onClickLogo}
             />,
 //}}

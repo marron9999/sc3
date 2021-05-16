@@ -110,7 +110,7 @@ class LibraryItem extends React.PureComponent {
         const iconURL = iconMd5 ?
 //{{
             //`https://cdn.assets.scratch.mit.edu/internalapi/asset/${iconMd5}/get/` :
-            ( this.props.staticAssets ? `/static/assets/${iconMd5}` :
+            ( this.props.staticAsset ? `/static/assets/${iconMd5}` :
             `https://cdn.assets.scratch.mit.edu/internalapi/asset/${iconMd5}/get/`) :
 //}}
             this.props.iconRawURL;
@@ -176,7 +176,7 @@ LibraryItem.propTypes = {
     onSelect: PropTypes.func.isRequired,
     showPlayButton: PropTypes.bool
 //{{
-    , staticAssets: PropTypes.bool
+    , staticAsset: PropTypes.bool
 //}}
 };
 

@@ -214,7 +214,6 @@ class BLE extends JSONRPC {
             this._connectCallback();
             break;
 //}}
-
         }
     }
 

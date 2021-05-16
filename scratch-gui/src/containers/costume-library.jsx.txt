@@ -31,6 +31,9 @@ class CostumeLibrary extends React.PureComponent {
             rotationCenterY: item.rotationCenterY,
             bitmapResolution: item.bitmapResolution,
             skinId: null
+//{{
+            , staticAsset: item.staticAsset
+//}}
         };
         this.props.vm.addCostumeFromLibrary(item.md5ext, vmCostume);
     }
@@ -44,7 +47,7 @@ class CostumeLibrary extends React.PureComponent {
                 onItemSelected={this.handleItemSelected}
                 onRequestClose={this.props.onRequestClose}
 //{{
-                staticAssets={this.props.vm.staticAssets}
+                staticAsset={this.props.vm.staticAsset}
 //}}
             />
         );
