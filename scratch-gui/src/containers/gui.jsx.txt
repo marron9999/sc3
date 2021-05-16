@@ -43,7 +43,7 @@ import {setIsScratchDesktop} from '../lib/isScratchDesktop.js';
 class GUI extends React.Component {
     componentDidMount () {
         setIsScratchDesktop(this.props.isScratchDesktop);
-//}}
+//{{
 //      this.props.onStorageInit(storage);
 //      this.props.onVmInit(this.props.vm);
         this.props.onStorageInit(storage, this.props);
