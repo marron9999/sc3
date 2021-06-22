@@ -5,6 +5,9 @@ const cast = require('../../util/cast');
 const formatMessage = require('format-message');
 const BLE = require('../../io/ble');
 const Base64Util = require('../../util/base64-util');
+//{{
+const ScratchLinkBluetooth = require('../../util/scratch-link-bluetooth');
+//}}	
 
 /**
  * Icon png to be displayed at the left edge of each extension block, encoded as a data URI.
@@ -147,7 +150,20 @@ class MicroBit {
         this.reset = this.reset.bind(this);
         this._onConnect = this._onConnect.bind(this);
         this._onMessage = this._onMessage.bind(this);
+
+//{{
+		this._linkSocketFactory = this._linkSocketFactory.bind(this);
+		this._webSocket = true;
+//}}	
     }
+
+//{{
+	_linkSocketFactory(type) {
+		if( ! this._webSocket)
+			return new ScratchLinkBluetooth(type);
+		return new ScratchLinkWebSocket(type);
+	}
+//}}
 
     /**
      * @param {string} text - the text to display.
@@ -218,11 +234,21 @@ class MicroBit {
         if (this._ble) {
             this._ble.disconnect();
         }
+
+//{{
+		let bak = this._runtime._linkSocketFactory;
+		this._runtime._linkSocketFactory = this._linkSocketFactory;
+//}}
+        
         this._ble = new BLE(this._runtime, this._extensionId, {
             filters: [
                 {services: [BLEUUID.service]}
             ]
         }, this._onConnect, this.reset);
+
+//{{
+		this._runtime._linkSocketFactory = bak;
+//}}
     }
 
     /**
@@ -267,6 +293,17 @@ class MicroBit {
         }
         return connected;
     }
+
+//{{
+	isWebSocket () {
+		if(window.navigator.bluetooth != undefined
+		&& window.navigator.bluetooth != null) {
+			this._webSocket = false;
+			return false;
+		}
+		return true;
+	}
+//}}	
 
     /**
      * Send a message to the peripheral BLE socket.
