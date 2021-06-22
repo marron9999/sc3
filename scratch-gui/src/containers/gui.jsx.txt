@@ -45,8 +45,10 @@ class GUI extends React.Component {
         setIsScratchDesktop(this.props.isScratchDesktop);
 //{{
 //      this.props.onStorageInit(storage);
-//      this.props.onVmInit(this.props.vm);
         this.props.onStorageInit(storage, this.props);
+//}}
+//{{
+//      this.props.onVmInit(this.props.vm);
         this.props.onVmInit(this.props.vm, this.props);
 //}}
     }
@@ -143,7 +145,7 @@ GUI.defaultProps = {
             vm.staticAsset = props.staticAsset;
    }
 //}}
-}
+};
 
 const mapStateToProps = state => {
     const loadingState = state.scratchGui.projectState.loadingState;

@@ -63,7 +63,7 @@ export default appTarget => {
 
 //{{
     const staticAsset = (process.env.ASSETS == 'static');
-    const webbluetooth = (process.env.NODE_BLE == 'webbluetooth');
+    const vmScratchLink = (process.env.NODE_BLE != 'webbluetooth');
 //}}
 
     ReactDOM.render(
@@ -79,7 +79,6 @@ export default appTarget => {
                 onTelemetryModalOptOut={handleTelemetryModalOptOut}
             /> :
 //{{
-            webbluetooth?
             <WrappedGui
                 canEditTitle
                 //backpackVisible
@@ -88,16 +87,7 @@ export default appTarget => {
                 canSave={false}
                 //onClickLogo={onClickLogo}
                 staticAsset={staticAsset}
-                vmScratchLink={false}
-            /> :
-            <WrappedGui
-                canEditTitle
-                //backpackVisible
-                showComingSoon={false}
-                backpackHost={backpackHost}
-                canSave={false}
-                staticAsset={staticAsset}
-                //onClickLogo={onClickLogo}
+                vmScratchLink={vmScratchLink}
             />,
 //}}
 

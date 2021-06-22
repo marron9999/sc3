@@ -29,6 +29,10 @@ import DeletionRestorer from '../../containers/deletion-restorer.jsx';
 import TurboMode from '../../containers/turbo-mode.jsx';
 import MenuBarHOC from '../../containers/menu-bar-hoc.jsx';
 
+//{{
+import { makeProjectHTML, labelMakeProjectHTML } from '../../containers/sb3-makehtml.jsx';
+//}}
+
 import {openTipsLibrary} from '../../reducers/modals';
 import {setPlayer} from '../../reducers/mode';
 import {
@@ -74,8 +78,8 @@ import languageIcon from '../language-selector/language-icon.svg';
 import aboutIcon from './icon--about.svg';
 
 //{{
-//import scratchLogo from './scratch-logo.svg';
-import scratchLogo from '../../../static/cool-cat.png';
+import scratchLogo from './scratch-logo.svg';
+//import scratchLogo from '../../../static/cool-cat.png';
 //}}
 
 import sharedMessages from '../../lib/shared-messages';
@@ -174,6 +178,9 @@ class MenuBar extends React.Component {
             'handleLanguageMouseUp',
             'handleRestoreOption',
             'getSaveToComputerHandler',
+//{{
+            'handleClickMakeHTML',
+//}}
             'restoreOptionMessage'
         ]);
     }
@@ -254,6 +261,14 @@ class MenuBar extends React.Component {
             }
         };
     }
+
+//{{
+    handleClickMakeHTML () {
+        makeProjectHTML(this.props.projectTitle, this.props.vm);
+        this.props.onRequestCloseFile();
+    }
+//}}
+
     handleLanguageMouseUp (e) {
         if (!this.props.languageMenuOpen) {
             this.props.onClickLanguage(e);
@@ -380,6 +395,11 @@ class MenuBar extends React.Component {
                 {remixMessage}
             </Button>
         );
+
+//{{
+        const labelMakeHTML = labelMakeProjectHTML();
+//}}
+
         // Show the About button only if we have a handler for it (like in the desktop app)
         const aboutButton = this.buildAboutMenu(this.props.onClickAbout);
         return (
@@ -480,6 +500,12 @@ class MenuBar extends React.Component {
                                                 />
                                             </MenuItem>
                                         )}</SB3Downloader>
+                                    </MenuSection>
+
+                                    <MenuSection>
+                                         <MenuItem onClick={this.handleClickMakeHTML}>
+                                            {labelMakeHTML}
+                                        </MenuItem>
                                     </MenuSection>
                                 </MenuBarMenu>
                             </div>
